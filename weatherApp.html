@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="weatherApp.css">
+</head>
+<body>
+    <div class="container">
+        <div class="search-box">
+            <i class="fa-solid fa-location-dot"></i>
+            <input id="location" type="text" placeholder="Enter your location" spellcheck="false">
+            <button class="fa-solid fa-magnifying-glass" id="search-button"></button>
+        </div>
+        <div class="error">
+            <div class="box">
+                <img src="image/400 Error Bad Request-rafiki.png">
+                <p>Oops! Location not found!</p>
+            </div>
+        </div>
+        <div class="weather-box">
+            <div class="box">
+                <div class="info-weather">
+                    <div class="weather">
+                        <img src="image/clear.png" class="weather-icon">
+                        <p class="temp">16<span>°C</span></p>
+                        <p class="desc">Broken clouds</p>
+                        <p class="city">Kolkata</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="weather-details">
+            <div class="humidity">
+                <i class="fa-solid fa-droplet"></i>
+                <div class="text">
+                    <div class="info-humidity">
+                        <span>0%</span>
+                    </div>
+                    <p>Humidity</p>
+                </div>
+            </div>
+            <div class="wind">
+                <i class="fa-duotone fa-solid fa-wind"></i>
+                <div class="text">
+                    <div class="info-wind">
+                        <span>0Km/h</span>
+                    </div>
+                    <p>Wind Speed</p>
+                </div>
+            </div>
+        </div>
+        <div class="forecast-container">
+            <div class="forecast-item">
+                <h5 class="date">28 Sept</h5>
+                <img src="image/default.png" class="forecast-item-img">
+                <h5 class="forecast-temp">28°C</h5>
+            </div>
+            <div class="forecast-item">
+                <h5 class="date">28 Sept</h5>
+                <img src="image/default.png" class="forecast-item-img">
+                <h5 class="forecast-temp">28°C</h5>
+            </div>
+            <div class="forecast-item">
+                <h5 class="date">28 Sept</h5>
+                <img src="image/default.png" class="forecast-item-img">
+                <h5 class="forecast-temp">28°C</h5>
+            </div>
+            <div class="forecast-item">
+                <h5 class="date">28 Sept</h5>
+                <img src="image/default.png" class="forecast-item-img">
+                <h5 class="forecast-temp">28°C</h5>
+            </div>
+            <div class="forecast-item">
+                <h5 class="date">28 Sept</h5>
+                <img src="image/default.png" class="forecast-item-img">
+                <h5 class="forecast-temp">28°C</h5>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="weatherApp.js"></script>
+</body>
+</html>

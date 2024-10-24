@@ -1,0 +1,321 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 120vh;
+    background: url(image/weatherbg3.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    position: relative;
+    width: 400px;
+    height: 100px;
+    border-radius: 16px;
+    padding: 20px;
+    color: #fff;
+    background: rgba(255, 255, 255, .1);
+    backdrop-filter: blur(30px);
+    border: 2px solid rgba(255, 255, 255, .2);
+    transition: height .6s ease;
+}
+
+.search-box {
+    position: relative;
+    width: 100%;
+    height: 55px;
+    display: flex;
+    align-items: center;
+}
+
+.search-box i {
+    position: absolute;
+    left: 10px;
+    font-size: 28px;
+    color: #fff;
+}
+
+.search-box input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    outline: none;
+    border-radius: 10px;
+    font-size: 22px;
+    color: #fff;
+    font-weight: 500;
+    padding: 0 48px 0 42px;
+}
+
+.search-box input::placeholder {
+    color: #fff;
+    text-transform: capitalize;
+}
+
+.search-box button {
+    position: absolute;
+    right: 0;
+    width: 40px;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 28px;
+    color: #fff;
+    padding: 0 40px 0 5px;
+    cursor: pointer;
+}
+
+.weather-box {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.weather-box img {
+    width: 50%;
+}
+
+.weather-box .temp {
+    position: relative;
+    font-size: 56px;
+    line-height: 1;
+    font-weight: 600;
+    margin: 10px 0 6px -30px;
+}
+
+.weather-box .temp span {
+    position: absolute;
+    font-size: 24px;
+    margin-left: 4px;
+}
+
+.weather-box .desc {
+    font-size: 22px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+/*.weather-details {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+}
+
+.weather-details .humidity,
+.weather-details .wind {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    transform: translateY(-100%);
+}
+.weather-details.active .humidity,
+.weather-details.active .wind,
+.weather-box.active {
+    transform: translateY(0%);
+    transition: transform 1s ease;
+    transition-delay: .5s;
+}
+
+.weather-details i {
+    font-size: 40px;
+    margin-right: 10px;
+}
+
+.weather-details span {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.weather-details p {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.weather-details .humidity {
+    padding-left: 20px;
+    justify-content: flex-start;
+}
+
+.weather-details .wind {
+    padding-right: 20px;
+    justify-content: flex-end;
+}
+*/
+.weather-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px; /* Add some spacing between the weather box and details */
+    padding: 0 20px;
+    
+}
+.weather-details .humidity,
+.weather-details .wind {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    transform: translateY(-100%);
+}
+.weather-details.active .humidity,
+.weather-details.active .wind,
+.weather-box.active {
+    transform: translateY(0%);
+    transition: transform 1s ease;
+    transition-delay: .5s;
+}
+
+.weather-details i {
+    font-size: 40px;
+    margin-right: 10px;
+}
+
+.weather-details span {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.weather-details p {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.weather-details .humidity {
+    padding-left: 20px;
+    justify-content: flex-start;
+}
+
+.weather-details .wind {
+    padding-right: 20px;
+    justify-content: flex-end;
+}
+
+.weather-box,
+.weather-details,
+.error,
+.forecast-container{
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.weather-box.active,
+.weather-details.active,
+.error.active {
+    visibility: visible;
+    overflow: hidden;
+}
+.forecast-container.active{
+    visibility: visible;
+    overflow: scroll;
+}
+
+.weather-box box,
+.error box {
+    transform: translateY(-100%);
+}
+
+.weather-box.active .box,
+.error.active .box {
+    transform: translateY(0%);
+    transition: transform 1s ease;
+    transition-delay: .3s;
+}
+
+.error {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 110px;
+}
+
+.error img {
+    width: 60%;
+}
+
+.error p {
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 12px;
+}
+
+/* Forecast container styles */
+.forecast-container {
+    display: flex;
+    gap: 15px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding-bottom: 12px;
+    padding-top: 20px; /* Added spacing from the content above */
+    margin-top: 20px; /* Additional margin to separate the container from previous elements */
+}
+
+.forecast-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.forecast-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 99px;
+}
+
+.forecast-container::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 99px;
+}
+
+/* Forecast item styles */
+.forecast-item {
+    min-width: 120px;
+    background: rgba(255, 255, 255, .1);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 20px;
+    align-items: center;
+    border-radius: 12px;
+    transition: 0.3s background;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow for better emphasis */
+}
+
+.forecast-item:hover {
+    background: rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transform: translateY(-5px); /* Add slight hover movement */
+}
+
+.forecast-item-img {
+    width: 40px;
+    height: 40px;
+}
+
+/* Add date and weather details styling */
+.forecast-item-date {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.forecast-item-temp {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+}
+
+
+
+
